@@ -1,12 +1,14 @@
 package com.keywords;
 
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.base.DriverFactory;
 
 public class UIKeyword {
 	
@@ -54,9 +56,41 @@ public class UIKeyword {
 		driver.executeScript("arguments[0].value='"+text+"'", element);
 	}
 	
+	
+	/**
+	 * User for hovering over a specific WebElement element
+	 * @param element
+	 * @param driver
+	 */
+	protected void hoverOnElement(WebElement element, RemoteWebDriver driver) {
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(element).perform();
+		
+	}
+	
+	/**
+	 * Hit a keyboard key using Java's Robot class, by provdining int keycode or KeyEvent
+	 * @param driver
+	 * @param keycode
+	 */
+	protected void pressKey(RemoteWebDriver driver, int keycode) {
+		Robot robo = null;
+		try {
+			robo = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+		
+		robo.keyPress(keycode);
+		robo.keyRelease(keycode);
+		
+	}
+	
+	
 	/**
 	 * Step Definition Generator
-	 * @param s
+	 * @param String Step with keyword
 	 */
 	public static void singleStep(String s) {
 
@@ -75,6 +109,8 @@ public class UIKeyword {
 		System.out.println(methodName);
 
 	}
+	
+	
 	
 	/**
 	 * Provide the title of the window to which you want to switch to
