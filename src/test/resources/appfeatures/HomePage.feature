@@ -6,8 +6,8 @@ Given Application Homepage is open
 
 @TC_HP_001
 Scenario: To Verify Image Carousel Contains Services button and redirects to Services Page
- Given User clicks on the Services Button from the Image carousel
- Then Verify if "Services" Page is displayed
+Given User clicks on the Services Button from the Image carousel
+Then Verify if "Services" Page is displayed
  
 @TC_HP_002
 Scenario Outline: To Verify A Certain Section is Displayed on Home Page
@@ -54,3 +54,10 @@ Then Verify if new tab or window opens up with the related social account
 Scenario: To Verify User is redirected to LinkedIn after clicking on LinkedIn button in Home Page Footer
 Given User clicks on "LinkedIn" icon in the footer
 Then Verify if new tab or window opens up with the related social account
+
+@ContactPage
+Scenario: Fill out the contact form
+Given User Clicks on Contact Tab in the top header and then Clicks on Pune Office Tab
+And User enters their First Name
+#And User Enters their Email
+#And User Enters their Phone

@@ -54,6 +54,15 @@ public class HomePage extends UIKeyword {
 	
 	@FindBy(css = "a.social-linkedin")
 	private WebElement linkedinBTN;
+	
+	@FindBy(css = "a[href=\"https://www.aretove.com/contact-us\"]")
+	private WebElement contactBTN;
+	
+	@FindBy(css = "ul.vc_tta-tabs-list li:nth-child(2)")
+	private WebElement puneOfficeTab;
+	
+	@FindBy(css = "div.request_callback input[name=\"text-name\"]")
+	private WebElement firstNameTxtBox;
 
 	/** =================== Element Actions =================== **/
 
@@ -124,6 +133,20 @@ public class HomePage extends UIKeyword {
 		}
 		
 		return null;
+	}
+	
+	
+	public void click_On_ContactBTN() {
+		clickWithJS(contactBTN, driver);
+	}
+	
+	public void click_On_PuneOfficeTab() {
+		puneOfficeTab.click();
+	}
+	
+	
+	public void enter_text_First_Name() {
+		enterTextWithJS(firstNameTxtBox, "Sandesh", driver);
 	}
 
 }

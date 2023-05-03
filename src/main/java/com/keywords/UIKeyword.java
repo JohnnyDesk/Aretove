@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import com.base.DriverFactory;
 
 public class UIKeyword {
 	
@@ -23,11 +26,64 @@ public class UIKeyword {
 	}
 	
 	/**
+	 * Provide Css locator and driver instance to click on a element using JavaScript
+	 * @param csslocator
+	 * @param driver
+	 */
+	protected void clickWithJS(String csslocator, RemoteWebDriver driver) {
+		driver.executeScript("document.querySelector('"+csslocator+"').click()");
+	}
+	
+	/**
+	 * Provide WebElement and driver instance to click on a element using JavaScript
+	 * @param element
+	 * @param driver
+	 */
+	protected void clickWithJS(WebElement element, RemoteWebDriver driver) {
+		driver.executeScript("arguments[0].click()", element);
+	}
+	
+	/**
+	 * Provide WebElement, Text to enter and driver instance to Enter Text in a TextBox using JavaScript
+	 * @param element
+	 * @param text
+	 * @param driver
+	 * 
+	 */
+	protected void enterTextWithJS(WebElement element, String text, RemoteWebDriver driver) {
+		driver.executeScript("arguments[0].value='"+text+"'", element);
+	}
+	
+	/**
+	 * Step Definition Generator
+	 * @param s
+	 */
+	public static void singleStep(String s) {
+
+		String keyword = s.split(" ")[0];
+
+		String methodName = s.substring(keyword.length() + 1);
+
+		keyword = "@" + keyword;
+		String stepName = keyword + " (\"" + methodName + "\")";
+
+		methodName = methodName.replace(" ", "_");
+
+		methodName = "public void "+ methodName+"(){\n\n}";
+		
+		System.out.println(stepName);
+		System.out.println(methodName);
+
+	}
+	
+	/**
 	 * Provide the title of the window to which you want to switch to
 	 * @param title
 	 */
 	protected void switchWindow(String title) {
 		
 	}
+	
+	
 
 }

@@ -14,7 +14,7 @@ import io.cucumber.junit.CucumberOptions;
 				"html:target/CucumberReport/cucumber-report.html",
 				"rerun:target/failedRerun.txt"},
 		publish = true,
-		tags = "@Test")
+		tags = "@ContactPage")
 public class TestRunner {
 
 }
