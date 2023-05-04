@@ -142,8 +142,7 @@ public class UIKeyword {
 			parameter = cleanStep.substring(keyword.length()+1);
 			
 //			Creating Method Name
-			methodName = "public void " + parameter.substring(0, 1).toLowerCase() + parameter.substring(1)
-			.replace("\"", "").replace(" ", "_")+"(){\n\n}";
+			methodName = "public void " + parameter.toLowerCase().replace("\"", "").replace(" ", "_")+"(){\n\n}";
 //			Creating Annotation
 			keyword = "@"+keyword;
 //			Creating Parameter

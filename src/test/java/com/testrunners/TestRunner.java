@@ -13,7 +13,8 @@ import io.cucumber.junit.CucumberOptions;
 		plugin = {"json:target/jsonReports/cucumber-report.json",
 				"html:target/CucumberReport/cucumber-report.html",
 				"rerun:target/failedRerun.txt"},
-		publish = true)
+		publish = true,
+		tags = "@TC_CP_001")
 public class TestRunner {
 
 }

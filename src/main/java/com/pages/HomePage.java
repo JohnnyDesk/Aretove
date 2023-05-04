@@ -58,9 +58,6 @@ public class HomePage extends UIKeyword {
 	@FindBy(css = "a[href=\"https://www.aretove.com/contact-us\"]")
 	private WebElement contactBTN;
 	
-	@FindBy(css = "ul.vc_tta-tabs-list li:nth-child(2)")
-	private WebElement puneOfficeTab;
-	
 	@FindBy(css = "div.request_callback input[name=\"text-name\"]")
 	private WebElement firstNameTxtBox;
 
@@ -136,14 +133,10 @@ public class HomePage extends UIKeyword {
 	}
 	
 	
-	public void click_On_ContactBTN() {
+	public ContactPage click_On_ContactBTN() {
 		clickWithJS(contactBTN, driver);
+		return new ContactPage();
 	}
-	
-	public void click_On_PuneOfficeTab() {
-		puneOfficeTab.click();
-	}
-	
 	
 	public void enter_text_First_Name() {
 		enterTextWithJS(firstNameTxtBox, "Sandesh", driver);
