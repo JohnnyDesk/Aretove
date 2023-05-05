@@ -2,12 +2,9 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 
-import static org.testng.Assert.assertEquals;
-
 import org.testng.Assert;
 
 import com.base.DriverFactory;
-import com.keywords.UIKeyword;
 import com.pages.ContactPage;
 import com.pages.HomePage;
 

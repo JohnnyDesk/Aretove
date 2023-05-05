@@ -1,15 +1,12 @@
 package stepdefinitions;
 
 import java.util.List;
-import java.util.Set;
 
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
 import com.base.DriverFactory;
 import com.pages.HomePage;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
