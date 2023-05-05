@@ -37,7 +37,7 @@ public class HomePageSteps {
 	    
 	    @Given("User clicks on the About button in the top header")
 	    public void user_clicks_on_the_about_button_in_the_top_header() {
-	    	homepage.click_On_AboutBTN();
+	    	homepage.click_On_AboutTab();
 	    }
 	    
 	    @Given("On Homepage verify if {string} is Diplayed")
@@ -69,7 +69,7 @@ public class HomePageSteps {
 	    	this.tempString = socialAccount;
 	    	
 	    	System.out.println("Home Window " + homeWindow);
-	    	System.out.println(homepage.getAllWindowHandles());
+	    	System.out.println(homepage.getAllWindowHandles()); 
 	    }
 
 	    @Then("Verify if new tab or window opens up with the related social account")
@@ -78,16 +78,5 @@ public class HomePageSteps {
 	    	String newWindowTitle = homepage.switchWindow(tempString, homeWindow);
 	    	Assert.assertTrue(newWindowTitle.contains(tempString), " Redirected to incorrect page");
 	    	
-	    }
-	    
-	    @Given("User Clicks on Contact Tab in the top header and then Clicks on Pune Office Tab")
-	    public void user_clicks_on_contact_tab_in_the_top_header_and_then_clicks_on_pune_office_tab() {
-	    	homepage.click_On_ContactBTN();
-	    	homepage.click_On_PuneOfficeTab();
-	    }
-	    
-	    @And("User enters their First Name")
-	    public void enter_First_Name() {
-	    	homepage.enter_text_First_Name();
-	    }
+	    }	    
 }

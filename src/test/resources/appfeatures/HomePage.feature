@@ -54,10 +54,3 @@ Then Verify if new tab or window opens up with the related social account
 Scenario: To Verify User is redirected to LinkedIn after clicking on LinkedIn button in Home Page Footer
 Given User clicks on "LinkedIn" icon in the footer
 Then Verify if new tab or window opens up with the related social account
-
-@ContactPage
-Scenario: Fill out the contact form
-Given User Clicks on Contact Tab in the top header and then Clicks on Pune Office Tab
-And User enters their First Name
-#And User Enters their Email
-#And User Enters their Phone

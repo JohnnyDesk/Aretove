@@ -28,9 +28,6 @@ public class HomePage extends UIKeyword {
 	@FindBy(xpath = "//*[@id=\"slider-1-slide-52-layer-4\"]/a")
 	private WebElement servicesBTN;
 
-	@FindBy(css = "li#menu-item-2600")
-	private WebElement aboutBTN;
-
 	@FindBy(css = "div[class^=\"logo media-left\"]")
 	private WebElement logoMain;
 
@@ -58,11 +55,17 @@ public class HomePage extends UIKeyword {
 	@FindBy(css = "a[href=\"https://www.aretove.com/contact-us\"]")
 	private WebElement contactBTN;
 	
-	@FindBy(css = "ul.vc_tta-tabs-list li:nth-child(2)")
-	private WebElement puneOfficeTab;
-	
 	@FindBy(css = "div.request_callback input[name=\"text-name\"]")
 	private WebElement firstNameTxtBox;
+	
+	@FindBy(css = "li[id='menu-item-2600'] a")
+	private WebElement aboutTab;
+
+	@FindBy(css = "li[id='menu-item-2598'] a")
+	private WebElement ourApproachTab;
+	
+	@FindBy(css = "li[id='menu-item-2753'] a")
+	private WebElement ourTeamTab;
 
 	/** =================== Element Actions =================== **/
 
@@ -72,10 +75,6 @@ public class HomePage extends UIKeyword {
 
 	public String get_page_title() {
 		return driver.getTitle();
-	}
-
-	public void click_On_AboutBTN() {
-		aboutBTN.click();
 	}
 
 	public void click_On_Logo() {
@@ -135,18 +134,20 @@ public class HomePage extends UIKeyword {
 		return null;
 	}
 	
-	
 	public void click_On_ContactBTN() {
 		clickWithJS(contactBTN, driver);
 	}
 	
-	public void click_On_PuneOfficeTab() {
-		puneOfficeTab.click();
+	public void click_On_AboutTab() {
+		clickWithJS(aboutTab, driver);
 	}
 	
+	public void click_On_OurApproachTab() {
+		clickWithJS(ourApproachTab, driver);
+	}
 	
-	public void enter_text_First_Name() {
-		enterTextWithJS(firstNameTxtBox, "Sandesh", driver);
+	public void click_On_OurTeamTab() {
+		clickWithJS(ourTeamTab, driver);
 	}
 
 }
