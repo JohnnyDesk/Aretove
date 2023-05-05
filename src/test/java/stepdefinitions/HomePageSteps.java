@@ -37,7 +37,7 @@ public class HomePageSteps {
 	    
 	    @Given("User clicks on the About button in the top header")
 	    public void user_clicks_on_the_about_button_in_the_top_header() {
-	    	homepage.click_On_AboutBTN();
+	    	homepage.click_On_AboutTab();
 	    }
 	    
 	    @Given("On Homepage verify if {string} is Diplayed")
