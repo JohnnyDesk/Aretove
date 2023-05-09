@@ -7,11 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UIKeyword {
 	
@@ -214,6 +217,12 @@ public class UIKeyword {
 				.withTimeout(Duration.ofSeconds(30))
 				.pollingEvery(Duration.ofMillis(500))
 				.ignoring(NoSuchElementException.class);
+		
+		WebDriver dr = new EdgeDriver();
+		
+		WebDriverWait wait = new WebDriverWait(dr, 60);
+		wait.pollingEvery(Duration.ofMillis(500));
+		
 		
 		return fluentWait;
 	}
