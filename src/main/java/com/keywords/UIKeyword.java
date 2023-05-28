@@ -134,67 +134,7 @@ public class UIKeyword {
 		driver.executeScript("window.scrollBy(arguments[0],arguments[1])", xAxis,yAxis);
 	}
 
-	/**
-	 * Step Definition Generator
-	 * 
-	 * @param String Step with keyword
-	 */
-	public static void stepDef(String s) {
-
-		String[] steps = s.split("\n");
-
-//		Auto Imports
-		for (String step : steps) {
-			String firstWord = step.split(" ")[0];
-			
-			if (firstWord.equals("Given")) {
-				System.out.println("import io.cucumber.java.en.Given;");
-			}
-			if (firstWord.equals("When")) {
-				System.out.println("import io.cucumber.java.en.When;");
-			}
-			if (firstWord.equals("Then")) {
-				System.out.println("import io.cucumber.java.en.Then;");
-			}
-			if (firstWord.equals("And")) {
-				System.out.println("import io.cucumber.java.en.And;");
-			}
-			if (firstWord.equals("But")) {
-				System.out.println("import io.cucumber.java.en.But;");
-			}
-		}
-
-		System.out.println();
-
-//		Step Definition Generator
-
-		int numOfSteps = steps.length - 1;
-
-		String cleanStep = new String();
-		String keyword = new String();
-		String parameter = new String();
-		String methodName = new String();
-
-		for (int i = 0; i <= numOfSteps; i ++) {
-			cleanStep = steps[i].trim();
-			
-			keyword = cleanStep.split(" ")[0];
-			parameter = cleanStep.substring(keyword.length()+1);
-			
-//			Creating Method Name
-			methodName = "public void " + parameter.toLowerCase().replace("\"", "").replace(" ", "_")+"(){\n\n}";
-//			Creating Annotation
-			keyword = "@"+keyword;
-//			Creating Parameter
-			parameter = parameter.replaceAll("\"([^\"]*)\"", "{string}");
-			parameter = "(\"" + parameter + "\")";
-			
-			System.out.println(keyword+parameter);
-			System.out.println(methodName);
-		}
-
-	}
-	
+		
 	/**
 	 * Puts current thread to sleep and handles exception
 	 * @param milliSeconds
