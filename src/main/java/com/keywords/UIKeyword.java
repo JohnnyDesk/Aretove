@@ -106,7 +106,7 @@ public class UIKeyword {
 
 	/**
 	 * Hit a keyboard key using Java's Robot class, by provdining int keycode or
-	 * KeyEvent
+	 * KeyEvent event
 	 * 
 	 * @param driver
 	 * @param keycode
